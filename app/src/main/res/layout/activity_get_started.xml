@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/getstarted_bg"
+    android:paddingHorizontal="30dp"
+    android:backgroundTint="#000"
+    android:backgroundTintMode="add">
+
+    <TextView
+        android:id="@+id/getstarted_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:text="It's a big world"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins"/>
+
+    <TextView
+        android:id="@+id/getstarted_title2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/getstarted_title"
+        android:layout_marginTop="0dp"
+        android:text="Out There, Go Explore"
+        android:textColor="@color/green"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_getstarted"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/mapview_button"
+        android:drawableRight="@drawable/arrow_right"
+        android:drawableTint="@color/white"
+        android:fontFamily="@font/poppins"
+        android:gravity="center"
+        android:paddingHorizontal="10dp"
+        android:text="Get Started"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        android:textStyle="normal" />
+
+    <Button
+        android:id="@+id/btn_privacy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:backgroundTint="#00000000"
+        android:text="Privacy Policy"
+        android:fontFamily="@font/poppins"
+        android:textAllCaps="false"
+        android:textSize="12sp" />
+
+
+</RelativeLayout>
