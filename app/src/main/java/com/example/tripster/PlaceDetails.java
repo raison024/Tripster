@@ -25,11 +25,17 @@ public class PlaceDetails extends AppCompatActivity {
     ImageButton btnBack2, btnDelete2, details_favbutton;
     ImageView imageView2;
     SQLiteHelper sqLiteHelper;
+//    private BottomSheetBehavior mBottomSheetBehavior;
+
     @SuppressLint("Range")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_details);
+
+//        View bottomSheet = findViewById(R.id.bottom_sheet);
+//        mBottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
+
 
         edittxtname2 = findViewById(R.id.edittxtname2);
         edittxtdesc2 = findViewById(R.id.edittxtdesc2);
@@ -78,8 +84,9 @@ public class PlaceDetails extends AppCompatActivity {
         btnBack2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PlaceDetails.this, PlaceList.class);
-                startActivity(intent);
+//                Intent intent = new Intent(PlaceDetails.this, PlaceList.class);
+//                startActivity(intent);
+                finish();
             }
         });
 

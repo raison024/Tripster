@@ -1,6 +1,7 @@
 package com.example.tripster;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -29,7 +30,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
-
+    Context context;
     TextView add_title;
     TextInputEditText edittxtname, edittxtdesc, edittxtloc, edittxtmap;
     Button btnChoose, btnAdd, btnList;
@@ -186,5 +187,5 @@ public class MainActivity extends AppCompatActivity {
         btnAdd = (Button) findViewById(R.id.btnAdd);
         btnList = (Button) findViewById(R.id.btnList);
         btnback = (ImageButton) findViewById(R.id.btnBack);
-        }
+    }
 }

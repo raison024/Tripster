@@ -6,9 +6,12 @@
         <entry key="..\:/Users/raiso/AndroidStudioProjects/tripster2/app/src/main/res/drawable/back_button.xml" value="0.248" />
         <entry key="..\:/Users/raiso/AndroidStudioProjects/tripster2/app/src/main/res/drawable/blur_shape.xml" value="0.238" />
         <entry key="..\:/Users/raiso/AndroidStudioProjects/tripster2/app/src/main/res/drawable/gradient_bg.xml" value="0.248" />
+        <entry key="..\:/Users/raiso/AndroidStudioProjects/tripster2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/raiso/AndroidStudioProjects/tripster2/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/raiso/AndroidStudioProjects/tripster2/app/src/main/res/drawable/logreg_button.xml" value="0.2585" />
         <entry key="..\:/Users/raiso/AndroidStudioProjects/tripster2/app/src/main/res/drawable/logreg_edittext.xml" value="0.2585" />
         <entry key="..\:/Users/raiso/AndroidStudioProjects/tripster2/app/src/main/res/drawable/mapview_button.xml" value="0.238" />
+        <entry key="..\:/Users/raiso/AndroidStudioProjects/tripster2/app/src/main/res/drawable/remove_icon_fg.xml" value="0.1415" />
         <entry key="..\:/Users/raiso/AndroidStudioProjects/tripster2/app/src/main/res/drawable/rounded_corner.xml" value="0.2585" />
         <entry key="..\:/Users/raiso/AndroidStudioProjects/tripster2/app/src/main/res/drawable/search_shape.xml" value="0.238" />
         <entry key="..\:/Users/raiso/AndroidStudioProjects/tripster2/app/src/main/res/drawable/selector.xml" value="0.248" />
@@ -16,7 +19,7 @@
         <entry key="..\:/Users/raiso/AndroidStudioProjects/tripster2/app/src/main/res/layout/activity_get_started.xml" value="0.2" />
         <entry key="..\:/Users/raiso/AndroidStudioProjects/tripster2/app/src/main/res/layout/activity_login.xml" value="0.20863616930312098" />
         <entry key="..\:/Users/raiso/AndroidStudioProjects/tripster2/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/raiso/AndroidStudioProjects/tripster2/app/src/main/res/layout/activity_place_details.xml" value="0.2" />
+        <entry key="..\:/Users/raiso/AndroidStudioProjects/tripster2/app/src/main/res/layout/activity_place_details.xml" value="0.1" />
         <entry key="..\:/Users/raiso/AndroidStudioProjects/tripster2/app/src/main/res/layout/activity_registration.xml" value="0.19709277469003847" />
         <entry key="..\:/Users/raiso/AndroidStudioProjects/tripster2/app/src/main/res/layout/activity_search.xml" value="0.20863616930312098" />
         <entry key="..\:/Users/raiso/AndroidStudioProjects/tripster2/app/src/main/res/layout/activity_settings.xml" value="0.20863616930312098" />

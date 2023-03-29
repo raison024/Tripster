@@ -25,14 +25,13 @@ public class Search extends AppCompatActivity implements CustomAdapter.ClickList
     CustomAdapter customAdapter;
     SQLiteHelper sqLiteHelper;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-
         search_recycler = findViewById(R.id.search_recycler);
         sqLiteHelper = new SQLiteHelper(this);
+
         Cursor cursor = sqLiteHelper.getData("SELECT * FROM PLACE");
         placeList.clear();
         while (cursor.moveToNext()) {

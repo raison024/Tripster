@@ -39,18 +39,18 @@
                 android:fontFamily="@font/poppins"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Enter your details"
-                android:fontFamily="@font/poppins"
-                android:textColor="#959595"
-                android:textSize="15sp" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Enter your details"-->
+<!--                android:fontFamily="@font/poppins"-->
+<!--                android:textColor="#959595"-->
+<!--                android:textSize="15sp" />-->
 
             <ImageView
-                android:layout_width="300dp"
-                android:layout_height="300dp"
-                android:background="@drawable/login_img3"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:background="@drawable/login_img4"
                 android:layout_gravity="center_horizontal"/>
 
             <com.google.android.material.textfield.TextInputLayout

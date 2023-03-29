@@ -18,7 +18,7 @@ import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.ArrayList;
 
-public class PlaceList extends AppCompatActivity implements PlaceListAdapter.ClickListener {
+public class PlaceList extends AppCompatActivity implements CustomAdapter.ClickListener {
 
     RecyclerView toppicks_recycler, newadded_recycler   ;
     ArrayList<Place> placeList = new ArrayList<>();

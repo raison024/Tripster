@@ -24,10 +24,10 @@ import java.util.List;
 import io.alterac.blurkit.BlurLayout;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> implements Filterable {
-    private Context context;
-    private List<Place> placeList = new ArrayList<>();
-    private List<Place> placeListAll = new ArrayList<>();
-    private ClickListener listener;
+    private final Context context;
+    private final List<Place> placeList;
+    private final List<Place> placeListAll;
+    private final ClickListener listener;
     SQLiteHelper sqLiteHelper;
 
     CustomAdapter(Context context, ArrayList<Place> placeList, ClickListener listener){
@@ -48,9 +48,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Place plist =  placeList.get(position);
-        int fid = Integer.valueOf(plist.getFavourite());
-
-        if(fid == 1) {
+        if(plist.getFavourite() == 1) {
             holder.list_favbutton.setBackgroundResource(R.drawable.favorite_fill);
         }
         else {
@@ -60,14 +58,17 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             @Override
             public void onClick(View view) {
                 int intid= plist.getId();
-                if(fid == 1) {
+
+                if(plist.getFavourite() == 1) {
                     holder.list_favbutton.setBackgroundResource(R.drawable.favorite);
                     sqLiteHelper.removeFavourite(intid);
+                    plist.setFavourite(0);
                     Toast.makeText(context.getApplicationContext(), "Removed from favourites", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     holder.list_favbutton.setBackgroundResource(R.drawable.favorite_fill);
                     sqLiteHelper.addFavourite(intid);
+                    plist.setFavourite(1);
                     Toast.makeText(context.getApplicationContext(), "Added to favourites", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -76,8 +77,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.txtname.setText(String.valueOf(plist.getName()));
         holder.txtdesc.setText(String.valueOf(plist.getDesc()));
 
-        Float floatrating= plist.getRating();
-        String strrating = floatrating.toString();
+        float floatrating= plist.getRating();
+        String strrating = Float.toString(floatrating);
         holder.list_rating.setText(strrating);
 
         byte[] placeImage = plist.getImage();
@@ -136,7 +137,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
 
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView txtname, txtdesc, list_rating;
         ImageView imgplace;

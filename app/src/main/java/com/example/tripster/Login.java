@@ -1,7 +1,6 @@
 package com.example.tripster;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -35,6 +34,8 @@ public class Login extends AppCompatActivity {
         loginpage_skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPref.setUserMode(Login.this,false);
+                SharedPref.setUserEmail(Login.this,"");
                 Intent intent = new Intent(Login.this, Search.class);
                 startActivity(intent);
             }
@@ -52,14 +53,17 @@ public class Login extends AppCompatActivity {
                    Boolean checkuserpass = sqLiteHelper.checkuser(email,pass);
                    if(checkuserpass == true) {
                        //Updating Shared Preference
-                       SharedPreferences sharedPreferences = getSharedPreferences("Userpreference", MODE_PRIVATE);
-                       SharedPreferences.Editor myEdit = sharedPreferences.edit();
-                       myEdit.putString("usermode","true");
-                       myEdit.putString("useremail",email);
-                       myEdit.apply();
+//                       SharedPreferences sharedPreferences = getSharedPreferences("Userpreference", MODE_PRIVATE);
+//                       SharedPreferences.Editor myEdit = sharedPreferences.edit();
+//                       myEdit.putString("usermode","true");
+//                       myEdit.putString("useremail",email);
+//                       myEdit.apply();
+
+                       SharedPref.setUserMode(Login.this,true);
+                       SharedPref.setUserEmail(Login.this, email);
 
                        Toast.makeText(Login.this, "Login Successful!", Toast.LENGTH_SHORT).show();
-                       Intent intent = new Intent(Login.this, Splash.class);
+                       Intent intent = new Intent(Login.this, Search.class);
                        startActivity(intent);
                    }
                    else{

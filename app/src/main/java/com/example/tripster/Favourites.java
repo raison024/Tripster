@@ -3,15 +3,12 @@ package com.example.tripster;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.view.MenuItem;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.ArrayList;
 
@@ -42,36 +39,33 @@ public class Favourites extends AppCompatActivity implements CustomAdapter.Click
             placeList.add(new Place(id, name, desc, image, rating, favourite));
         }
 
-        customAdapter = new CustomAdapter(this, placeList, this::onClick);
+        customAdapter = new CustomAdapter(this, placeList, this);
         fav_recycler.setAdapter(customAdapter);
         fav_recycler.setLayoutManager(new GridLayoutManager(this, 2));
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.favourites);
 
-        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        bottomNavigationView.setOnItemSelectedListener(item -> {
 
-                switch(item.getItemId())
-                {
-                    case R.id.favourites:
-                        return true;
-                    case R.id.home:
-                        startActivity(new Intent(getApplicationContext(),PlaceList.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.search:
-                        startActivity(new Intent(getApplicationContext(),Search.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.settings:
-                        startActivity(new Intent(getApplicationContext(),settings.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                }
-                return false;
+            switch(item.getItemId())
+            {
+                case R.id.favourites:
+                    return true;
+                case R.id.home:
+                    startActivity(new Intent(getApplicationContext(),PlaceList.class));
+                    overridePendingTransition(0,0);
+                    return true;
+                case R.id.search:
+                    startActivity(new Intent(getApplicationContext(),Search.class));
+                    overridePendingTransition(0,0);
+                    return true;
+                case R.id.settings:
+                    startActivity(new Intent(getApplicationContext(),settings.class));
+                    overridePendingTransition(0,0);
+                    return true;
             }
+            return false;
         });
     }
 

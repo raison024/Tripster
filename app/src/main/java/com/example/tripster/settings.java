@@ -1,10 +1,11 @@
 package com.example.tripster;
 
+import static android.view.View.GONE;
+
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -44,11 +45,9 @@ public class settings extends AppCompatActivity {
         settings_login = findViewById(R.id.settings_login);
         settings_deleteacc = findViewById(R.id.settings_deleteacc);
 
-        SharedPreferences sh = getSharedPreferences("Userpreference", MODE_PRIVATE);
-        String uservalue = sh.getString("usermode", "");
-
-        if(uservalue.equals("true")) {
-            String useremail = sh.getString("useremail", "");
+        boolean uservalue = SharedPref.getUserMode(this);
+        if(uservalue) {
+            String useremail = SharedPref.getUserEmail(this);
             Cursor cursor = sqLiteHelper.getData("SELECT * FROM USER WHERE useremail='"+useremail+"'");
             cursor.moveToNext();
             settings_username.setText(cursor.getString(cursor.getColumnIndex("username")));
@@ -57,10 +56,11 @@ public class settings extends AppCompatActivity {
             Bitmap bitmap = BitmapFactory.decodeByteArray(placeImage, 0, placeImage.length);
             settings_profileimg.setImageBitmap(bitmap);
         }
-
-        if(uservalue.equals("false")) {
+        else {
             settings_username.setText("Kindly login!");
             settings_login.setText("Login");
+            settings_changepfp.setVisibility(GONE);
+            settings_deleteacc.setVisibility(GONE);
         }
 
         settings_login.setOnClickListener(new View.OnClickListener() {
@@ -68,16 +68,13 @@ public class settings extends AppCompatActivity {
             public void onClick(View view) {
                 new AlertDialog.Builder(settings.this)
                         .setTitle("Logout")
-                        .setIcon(R.drawable.password)
+//                        .setIcon(R.drawable.password)
                         .setMessage("Are you sure you want to logout?")
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 Toast.makeText(settings.this, "User Logged Out", Toast.LENGTH_SHORT).show();
-                                SharedPreferences sharedPreferences = getSharedPreferences("Userpreference", MODE_PRIVATE);
-                                SharedPreferences.Editor myEdit = sharedPreferences.edit();
-                                myEdit.putString("usermode","false");
-                                myEdit.apply();
-
+                                SharedPref.setUserMode(settings.this,false);
+                                SharedPref.setUserEmail(settings.this,"");
                                 Intent intent = new Intent(settings.this, Login.class);
                                 startActivity(intent);
                             }
@@ -99,7 +96,7 @@ public class settings extends AppCompatActivity {
             public void onClick(View view) {
                 new AlertDialog.Builder(settings.this)
                         .setTitle("Delete Account")
-                        .setIcon(R.drawable.delete)
+//                        .setIcon(R.drawable.delete)
                         .setMessage("Are you sure you want to delete your account?")
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
