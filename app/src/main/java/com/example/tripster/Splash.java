@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -30,23 +29,17 @@ public class Splash extends AppCompatActivity {
 //            sqLiteHelper.getReadableDatabase();
             //CopyDb
             if(copyDatabase(this)) {
-                Toast.makeText(this, "Copy db success", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "Copy db success", Toast.LENGTH_SHORT).show();
             }
             else {
-                Toast.makeText(this, "Copy db error", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "Copy db error", Toast.LENGTH_SHORT).show();
                 return;
             }
         }
         else {
-            Toast.makeText(this, "Already present db", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "Already present db", Toast.LENGTH_SHORT).show();
         }
 
-//        sqLiteHelper = new SQLiteHelper(getApplicationContext());
-//        try {
-//            sqLiteHelper.createDataBase();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
 
         new Handler().postDelayed(new Runnable() {
             @Override

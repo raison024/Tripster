@@ -20,12 +20,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class PlaceDetails extends AppCompatActivity {
 
-    TextView edittxtname2, edittxtdesc2, edittxtloc2, edittxtstate2, edittxtrat2;
+    TextView edittxtname2, edittxtdesc2, edittxtloc2, edittxtstate2, edittxtrat2, edittxtnearby2;
     Button mapsbutton;
     ImageButton btnBack2, btnDelete2, details_favbutton;
     ImageView imageView2;
     SQLiteHelper sqLiteHelper;
-//    private BottomSheetBehavior mBottomSheetBehavior;
 
     @SuppressLint("Range")
     @Override
@@ -33,15 +32,12 @@ public class PlaceDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_details);
 
-//        View bottomSheet = findViewById(R.id.bottom_sheet);
-//        mBottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
-
-
         edittxtname2 = findViewById(R.id.edittxtname2);
         edittxtdesc2 = findViewById(R.id.edittxtdesc2);
         edittxtloc2 = findViewById(R.id.edittxtloc2);
         edittxtstate2 = findViewById(R.id.edittxtstate2);
         edittxtrat2 = findViewById(R.id.edittxtrat2);
+        edittxtnearby2 = findViewById(R.id.edittxtnearby2);
         imageView2 = findViewById(R.id.imageView2);
         btnBack2 = findViewById(R.id.btnBack2);
         btnDelete2 = findViewById(R.id.btnDelete2);
@@ -59,6 +55,7 @@ public class PlaceDetails extends AppCompatActivity {
         edittxtloc2.setText(cursor.getString(cursor.getColumnIndex("location")));
         edittxtstate2.setText(cursor.getString(cursor.getColumnIndex("state")));
         edittxtrat2.setText(cursor.getString(cursor.getColumnIndex("rating")));
+        edittxtnearby2.setText(cursor.getString(cursor.getColumnIndex("nearby")));
         mapsbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,9 +81,8 @@ public class PlaceDetails extends AppCompatActivity {
         btnBack2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(PlaceDetails.this, PlaceList.class);
-//                startActivity(intent);
-                finish();
+                Intent intent = new Intent(PlaceDetails.this, PlaceList.class);
+                startActivity(intent);
             }
         });
 
@@ -102,7 +98,11 @@ public class PlaceDetails extends AppCompatActivity {
                                 switch (which) {
                                     case 0:
                                         //update
-                                        Toast.makeText(getApplicationContext(), "clicked 1", Toast.LENGTH_SHORT).show();
+                                        Intent getintent = getIntent();
+                                        int id  = getintent.getIntExtra("id",0);
+                                        Intent intent = new Intent(PlaceDetails.this, Update.class);
+                                        intent.putExtra("id",id);
+                                        startActivity(intent);
                                         break;
                                     case 1:
                                         //delete

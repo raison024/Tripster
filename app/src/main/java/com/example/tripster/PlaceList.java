@@ -30,24 +30,6 @@ public class PlaceList extends AppCompatActivity implements CustomAdapter.ClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.place_list_activity);
 
-//        gridView = (GridView) findViewById(R.id.gridView);
-//        list = new ArrayList<>();
-//        sqLiteHelper = new SQLiteHelper(this);
-//        Cursor cursor = sqLiteHelper.getData("SELECT * FROM PLACE");
-//        list.clear();
-//        while (cursor.moveToNext()) {
-//            int id = cursor.getInt(0);
-//            String name = cursor.getString(1);
-//            String desc = cursor.getString(4);
-//            byte[] image = cursor.getBlob(3);
-//            float rating = cursor.getFloat(7);
-//            int favourite = cursor.getInt(8);
-//
-//            list.add(new Place(id, name, desc, image, rating, favourite));
-//        }
-//        adapter = new PlaceListAdapter(this, R.layout.place_items, list, this::onClick);
-//        gridView.setAdapter(adapter);
-
         //TopRated_Recycler
         toppicks_recycler = findViewById(R.id.toppicks_recycler);
         sqLiteHelper = new SQLiteHelper(this);

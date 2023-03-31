@@ -32,8 +32,8 @@ import java.io.InputStream;
 public class MainActivity extends AppCompatActivity {
     Context context;
     TextView add_title;
-    TextInputEditText edittxtname, edittxtdesc, edittxtloc, edittxtmap;
-    Button btnChoose, btnAdd, btnList;
+    TextInputEditText edittxtname, edittxtdesc, edittxtloc, edittxtmap, edittxtnearby;
+    Button btnChoose, btnAdd;
     Spinner spinner1;
     RatingBar ratingBar1;
     ImageButton btnback;
@@ -95,7 +95,8 @@ public class MainActivity extends AppCompatActivity {
                             edittxtloc.getText().toString().trim(),
                             spinner1.getSelectedItem().toString(),
                             edittxtmap.getText().toString().trim(),
-                            ratingBar1.getRating()
+                            ratingBar1.getRating(),
+                            edittxtnearby.getText().toString().trim()
                     );
                     Toast.makeText(getApplicationContext(),"Added Successfully!", Toast.LENGTH_SHORT).show();
                     edittxtname.setText("");
@@ -103,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
                     edittxtloc.setText("");
                     edittxtmap.setText("");
                     ratingBar1.setRating(0);
+                    edittxtnearby.setText("");
                     imageView.setImageResource(R.mipmap.ic_launcher);
                 }
                 catch (Exception e) {
@@ -111,19 +113,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               Intent intent = new Intent(MainActivity.this, PlaceList.class);
-               startActivity(intent);
-            }
-        });
-
         btnback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, PlaceList.class);
-                startActivity(intent);
+//                Intent intent = new Intent(MainActivity.this, PlaceList.class);
+//                startActivity(intent);
+                finish();
             }
         });
 
@@ -178,6 +173,7 @@ public class MainActivity extends AppCompatActivity {
         edittxtdesc = (TextInputEditText) findViewById(R.id.edittxtdesc);
         edittxtloc = (TextInputEditText) findViewById(R.id.edittxtloc);
         edittxtmap = (TextInputEditText) findViewById(R.id.edittxtmap);
+        edittxtnearby = (TextInputEditText) findViewById(R.id.edittxtnearby);
 
         spinner1 = (Spinner) findViewById(R.id.spinner1);
         ratingBar1 = (RatingBar) findViewById(R.id.ratingBar1);
@@ -185,7 +181,6 @@ public class MainActivity extends AppCompatActivity {
 
         btnChoose = (Button) findViewById(R.id.btnChoose);
         btnAdd = (Button) findViewById(R.id.btnAdd);
-        btnList = (Button) findViewById(R.id.btnList);
         btnback = (ImageButton) findViewById(R.id.btnBack);
     }
 }

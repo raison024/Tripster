@@ -5,18 +5,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingHorizontal="20dp"
     android:background="@color/white"
     tools:context=".MainActivity"
     android:orientation="vertical">
 
 
     <RelativeLayout
+        android:id="@+id/main_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
-        android:paddingHorizontal="10dp">
+        android:layout_marginVertical="5dp"
+        android:background="@color/white"
+        android:gravity="center_vertical">
     <ImageButton
         android:id="@+id/btnBack"
         android:layout_width="40dp"
@@ -40,34 +42,40 @@
         android:textStyle="bold" />
     </RelativeLayout>
 
+    <ScrollView
+        android:id="@+id/scroll_main"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnAdd"
+        android:layout_below="@+id/main_header"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp">
+
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:layout_centerInParent="true"
-            android:padding="20dp">
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:endIconMode="clear_text"
-                app:helperText="*Required"
-                app:helperTextTextColor="@color/green"
+                android:hint="Place"
                 app:counterEnabled="true"
                 app:counterMaxLength="15"
                 app:counterTextColor="@color/green"
-                android:hint="Place">
+                app:endIconMode="clear_text"
+                app:helperText="*Required"
+                app:helperTextTextColor="@color/green">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edittxtname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
                     android:fontFamily="@font/poppins"
-                    />
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -75,26 +83,25 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:endIconMode="clear_text"
-                app:helperText="*Required"
-                app:helperTextTextColor="@color/green"
+                android:hint="Description"
                 app:counterEnabled="true"
                 app:counterMaxLength="50"
                 app:counterTextColor="@color/green"
-                android:hint="Description">
+                app:endIconMode="clear_text"
+                app:helperText="*Required"
+                app:helperTextTextColor="@color/green">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edittxtdesc"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
+                    android:fontFamily="@font/poppins"
                     android:gravity="top"
                     android:inputType="textMultiLine"
                     android:overScrollMode="always"
                     android:scrollbarStyle="insideInset"
                     android:scrollbars="vertical"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/poppins"
-                    />
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -102,21 +109,20 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:endIconMode="clear_text"
-                app:helperText="*Required"
-                app:helperTextTextColor="@color/green"
+                android:hint="Location"
                 app:counterEnabled="true"
                 app:counterMaxLength="15"
                 app:counterTextColor="@color/green"
-                android:hint="Location">
+                app:endIconMode="clear_text"
+                app:helperText="*Required"
+                app:helperTextTextColor="@color/green">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edittxtloc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
                     android:fontFamily="@font/poppins"
-                    />
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -131,17 +137,35 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="Maps Link"
                 app:endIconMode="clear_text"
                 app:helperText="*Required"
-                app:helperTextTextColor="@color/green"
-                android:hint="Maps Link">
+                app:helperTextTextColor="@color/green">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edittxtmap"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/poppins"/>
+                    android:fontFamily="@font/poppins"
+                    android:textSize="12sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter nearby hotels and restaurants"
+                app:endIconMode="clear_text"
+                app:helperText="*Required"
+                app:helperTextTextColor="@color/green">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edittxtnearby"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -175,8 +199,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_toEndOf="@+id/imageView"
                     android:layout_marginStart="30dp"
+                    android:layout_toEndOf="@+id/imageView"
                     android:backgroundTint="@color/white"
                     android:drawableLeft="@android:drawable/ic_input_add"
                     android:drawableTint="#3fc380"
@@ -190,26 +214,22 @@
 
             </RelativeLayout>
 
-            <Button
-                android:id="@+id/btnAdd"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#3fc380"
-                android:fontFamily="@font/poppins"
-                android:gravity="center"
-                android:text="Add Place"
-                android:textAllCaps="false"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                app:cornerRadius="50dp" />
-
-            <Button
-                android:id="@+id/btnList"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Place List"
-                android:visibility="gone" />
-
         </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:backgroundTint="#3fc380"
+        android:fontFamily="@font/poppins"
+        android:gravity="center"
+        android:text="Add Place"
+        android:textAllCaps="false"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:cornerRadius="50dp" />
 
 </RelativeLayout>
