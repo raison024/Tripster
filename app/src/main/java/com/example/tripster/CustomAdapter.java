@@ -21,8 +21,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import io.alterac.blurkit.BlurLayout;
-
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> implements Filterable {
     private final Context context;
     private final List<Place> placeList;
@@ -37,6 +35,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         this.listener = listener;
         sqLiteHelper = new SQLiteHelper(context);
     }
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -143,7 +142,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         ImageView imgplace;
         ImageButton list_favbutton;
         LinearLayout placelistlayout;
-        BlurLayout blur_nameandloc;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             txtname = itemView.findViewById(R.id.txtname);

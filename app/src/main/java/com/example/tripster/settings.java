@@ -26,7 +26,7 @@ import com.google.android.material.navigation.NavigationBarView;
 public class settings extends AppCompatActivity {
 
     TextView settings_title, settings_username;
-    Button settings_changepfp, settings_login, settings_deleteacc;
+    Button settings_changepfp, settings_logout, settings_login, settings_deleteacc;
     ImageView settings_profileimg;
     SQLiteHelper sqLiteHelper;
 
@@ -42,6 +42,7 @@ public class settings extends AppCompatActivity {
         settings_profileimg = (ImageView) findViewById(R.id.settings_profileimg);
 
         settings_changepfp = findViewById(R.id.settings_changepfp);
+        settings_logout = findViewById(R.id.settings_logout);
         settings_login = findViewById(R.id.settings_login);
         settings_deleteacc = findViewById(R.id.settings_deleteacc);
 
@@ -55,15 +56,16 @@ public class settings extends AppCompatActivity {
             byte[] placeImage = cursor.getBlob(cursor.getColumnIndex("userimage"));
             Bitmap bitmap = BitmapFactory.decodeByteArray(placeImage, 0, placeImage.length);
             settings_profileimg.setImageBitmap(bitmap);
+            settings_login.setVisibility(GONE);
         }
         else {
             settings_username.setText("Kindly login!");
-            settings_login.setText("Login");
             settings_changepfp.setVisibility(GONE);
+            settings_logout.setVisibility(GONE);
             settings_deleteacc.setVisibility(GONE);
         }
 
-        settings_login.setOnClickListener(new View.OnClickListener() {
+        settings_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new AlertDialog.Builder(settings.this)
@@ -81,6 +83,16 @@ public class settings extends AppCompatActivity {
                         })
                         .setNegativeButton(android.R.string.no, null)
                         .show();
+            }
+        });
+
+        settings_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPref.setUserMode(settings.this,false);
+                SharedPref.setUserEmail(settings.this,"");
+                Intent intent = new Intent(settings.this, Login.class);
+                startActivity(intent);
             }
         });
 

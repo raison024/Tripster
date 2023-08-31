@@ -82,12 +82,25 @@
 
 
         <Button
-            android:id="@+id/settings_login"
+            android:id="@+id/settings_logout"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:backgroundTint="@color/white"
             android:gravity="center_vertical"
             android:text="Logout"
+            android:fontFamily="@font/poppins"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/settings_login"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:backgroundTint="@color/white"
+            android:gravity="center_vertical"
+            android:text="Login to your account"
             android:fontFamily="@font/poppins"
             android:textAllCaps="false"
             android:textColor="@color/black"

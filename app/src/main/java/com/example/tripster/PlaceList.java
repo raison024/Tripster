@@ -1,5 +1,7 @@
 package com.example.tripster;
 
+import static android.view.View.GONE;
+
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -66,7 +68,17 @@ public class PlaceList extends AppCompatActivity implements CustomAdapter.ClickL
         newadded_recycler.setAdapter(customAdapter);
         newadded_recycler.setLayoutManager(new LinearLayoutManager(PlaceList.this, LinearLayoutManager.HORIZONTAL, false));
 
+
         FloatingActionButton fabadd = (FloatingActionButton) findViewById(R.id.float_add);
+
+        boolean uservalue = SharedPref.getUserMode(this);
+        if(uservalue) {
+            fabadd.setVisibility(View.VISIBLE);
+        }
+        else {
+            fabadd.setVisibility(GONE);
+        }
+
         fabadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

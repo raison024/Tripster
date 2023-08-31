@@ -78,7 +78,7 @@ public class Splash extends AppCompatActivity {
 
                 finish();
             }
-        }, 3000);
+        }, 2000);
     }
 
     private boolean copyDatabase(Context context) {

@@ -1,5 +1,7 @@
 package com.example.tripster;
 
+import static android.view.View.GONE;
+
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -64,6 +66,13 @@ public class Search extends AppCompatActivity implements CustomAdapter.ClickList
         });
 
         FloatingActionButton fabadd2 = (FloatingActionButton) findViewById(R.id.float_add2);
+        boolean uservalue = SharedPref.getUserMode(this);
+        if(uservalue) {
+            fabadd2.setVisibility(View.VISIBLE);
+        }
+        else {
+            fabadd2.setVisibility(GONE);
+        }
         fabadd2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
